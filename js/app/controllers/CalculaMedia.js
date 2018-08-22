@@ -31,10 +31,6 @@ class CalculaMedia {
         return this._faltasFreq;
     }
 
-    set faltasFreq(value) {
-        this._faltasFreq = value;
-    }
-
     get aulasDia() {
         return this._aulasDia;
     }
