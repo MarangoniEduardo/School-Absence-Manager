@@ -20,24 +20,32 @@ let indexFuncoes = {
     init() {
         this.getSource();
         this.initElementEvents();
-        this.getResultados();
     },
 
     initElementEvents() {
-        buttonResult.on('click', function () {
-            this.getResultados();
-        });
+        buttonResult.on('click', e => this.getResultados());
     },
 
-    getResultados() {
+    getCamposvalues() {
         valores = {
-            diasLetivos: source.diasLetivos.val(),
-            minFreq: source.minFreq.val(),
-            faltasFreq: source.faltasFreq.val(),
-            aulasDia: source.aulasDia.val()
+            diasLetivos: source.campos.diasLetivos.val(),
+            minFreq: source.campos.minFreq.val(),
+            faltasFreq: source.campos.faltasFreq.val(),
+            aulasDia: source.campos.aulasDia.val()
         };
 
         return valores;
+    },
+
+    calculaMedia() {
+        let options = this.getCamposvalues();
+        let calculador = new CalculaMedia(options);
+
+        return calculador.getCalculosResultado();
+    },
+
+    getResultados() {
+
     },
 
     setCardValues() {
