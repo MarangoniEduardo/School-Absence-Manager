@@ -1,0 +1,95 @@
+<html>
+<meta charset="UTF-8">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<nav>
+    <div class="nav-wrapper blue lighten-2">
+        <a href="#" class="brand-logo center">!Reprová-lo-ei</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="#">Eduardo Marangoni</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="row middle" id="layout-central">
+    <br>
+    <br>
+    <form class="col s12 offset-s3">
+        <div class="row">
+            <div class="input-field col s2">
+                <input placeholder="Geralmente em torno de 200 dias" id="dias-letivos" type="number" min="1" max="365" class="validate">
+                <label for="dias-letivos">Dias letivos</label>
+                <br>
+            </div>
+            <div class="input-field col s2">
+                <input placeholder="Geralmente em torno 75%" id="min-freq" type="number" min="1" max="100" class="validate">
+                <label for="min-freq">Mínimo de frequência</label>
+                <br>
+            </div>
+            <div class="input-field col s1">
+                <input placeholder="Minhas faltas" id="faltas-freq" type="number" min="1" max="100" class="validate">
+                <label for="faltas-freq">Faltas</label>
+                <br>
+            </div>
+            <div class="input-field col s1">
+                <input placeholder="Aulas por dia" id="aulas-dia" type="number" min="1" max="50" class="validate">
+                <label for="aulas-dia">Aulas</label>
+                <br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class ="col s6">
+                <a class="btn orange dark-2 waves-effect waves-light" id="results">Ver Resultados
+                    <i class="material-icons left">done_all</i>
+                </a>
+            </div>
+        </div>
+
+
+        <div id="main" class="middle">
+            <div class="row" id="cards">
+                <div class="col s12 m6">
+                    <div class="card blue dark-2 col s3">
+                        <div class="card-content white-text">
+                            <span class="card-title">Faltas disponíveis</span>
+                            <p id ="faltas-disp">?</p>
+                        </div>
+                    </div>
+                    <div class="card red dark-2 col s3">
+                        <div class="card-content white-text">
+                            <span class="card-title">Frequência atual</span>
+                            <p id ="frequencia-atual">?%</p>
+                        </div>
+                    </div>
+                    <div class="card green dark-2 col s3">
+                        <div class="card-content white-text">
+                            <span class="card-title">Dias de presença</span>
+                            <p id ="dias-presentes">?</p>
+                        </div>
+                    </div>
+                    <div class="card purple dark-2 col s3">
+                        <div class="card-content white-text">
+                            <span class="card-title">Atualmente reprovado?</span>
+                            <p id ="reprovado-atual">?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/app/index.js"></script>
+<script type="text/javascript" src="js/app/controllers/CalculaMedia.js"></script>
+</html>
