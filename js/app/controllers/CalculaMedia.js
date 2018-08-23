@@ -23,7 +23,8 @@ class CalculaMedia {
     }
 
     getCalculosResultado() {
-
+        console.log(this.initCalculos());
+        return this.initCalculos();
     }
 
     initCalculos() {
@@ -31,23 +32,33 @@ class CalculaMedia {
             faltasDisponiveis: this.calculaFaltasDisponiveis(),
             frequenciaAtual: this.calculaFrequenciaAtual(),
             diasDePresenca: this.calculaDiasDePresenca(),
-            aprovado: this.getEstadoAprovacao()
+            aprovado: this.getEstadoAprovacao(),
+            faltasDisponiveisDias: this.calculaFaltasDisponiveisDias()
         };
     }
 
     calculaFaltasDisponiveis() {
+        let presencasNecessarias = this.diasLetivos * (this.minFreq / 100);
+        let faltasMax = this.diasLetivos - presencasNecessarias;
 
+        return (faltasMax - this.faltasFreq) * this.aulasDia;
+    }
+
+    calculaFaltasDisponiveisDias() {
+        return this.calculaFaltasDisponiveis() / this.aulasDia;
     }
 
     calculaFrequenciaAtual() {
+        let frequencia = this.diasLetivos - this.faltasFreq;
 
+        return (frequencia * 100) / this.diasLetivos;
     }
 
     calculaDiasDePresenca() {
-
+        return this.diasLetivos - this.faltasFreq;
     }
 
     getEstadoAprovacao() {
-
+        return this.calculaFrequenciaAtual() < this.minFreq;
     }
 }

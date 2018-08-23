@@ -45,11 +45,18 @@ let indexFuncoes = {
     },
 
     getResultados() {
+        let calculador = new CalculaMedia(this.getCamposvalues());
 
+        let results = calculador.getCalculosResultado();
+
+        this.setCardValues(results);
     },
 
-    setCardValues() {
-
+    setCardValues(results) {
+        source.cards.faltasDisponiveis.html("Dias: "+ results.faltasDisponiveisDias + ", Aulas: "+ results.faltasDisponiveis +".");
+        source.cards.frequenciaAtual.html(""+ results.frequenciaAtual + "%");
+        source.cards.diasPresentes.html(""+ results.diasDePresenca + " dias.");
+        source.cards.reprovadoAtual.html(""+ results.aprovado + "");
     },
 
     getSource() {
